@@ -3,7 +3,14 @@ import project1 from "../Assets/Images/project1.png";
 import project2 from "../Assets/Images/project2.png";
 import project3 from "../Assets/Images/project3.png";
 
-const projectImages = [project1, project2, project3, project1, project2];
+const projectImages = [
+  { img: project1, text: "Project 1 Text" },
+  { img: project2, text: "Project 2 Text" },
+  { img: project3, text: "Project 3 Text" },
+  { img: project1, text: "Project 4 Text" },
+  { img: project2, text: "Project 5 Text" },
+];
+
 const initialProjectsToShow = 3;
 
 const Project = () => {
@@ -33,12 +40,17 @@ const Project = () => {
                   }`}
                   key={index}
                 >
-                  <img
-                    className={`padding_project ${showMore ? "show" : "hide"}`}
-                    src={project}
-                    alt="project"
-                    loading="lazy"
-                  />
+                  <div className="project-container">
+                    <img
+                      className={` ${showMore ? "show" : "hide"}`}
+                      src={project.img}
+                      alt={`project_${index}`}
+                      loading="lazy"
+                    />
+                    <div className="overlay">
+                      <p className="overlay-text">{project.text}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
               <button className="more_btn" onClick={handleToggleClick}>

@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../Assets/Images/icon.svg";
 
 function Header() {
   const handleWorkLinkClick = (event) => {
@@ -14,12 +15,12 @@ function Header() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
-            <nav class="display_center navbar-expand-lg">
-              <a class="navbar-brand" href="#">
-                Navbar
+            <nav className="display_center navbar-expand-lg">
+              <a href="/">
+                <img src={logo} alt="logo_icon" />
               </a>
               <button
-                class="navbar-toggler"
+                className="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
@@ -27,26 +28,30 @@ function Header() {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span class="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse flex_end" id="navbarNav">
-                <ul class="navbar-nav gap_ul">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">
+              <div className="collapse navbar-collapse flex_end" id="navbarNav">
+                <ul className="navbar-nav gap_ul">
+                  <li className="nav-item">
+                    <a
+                      className="nav-link bold heading active"
+                      aria-current="page"
+                      href="#home"
+                    >
                       Home
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <li className="nav-item">
                     <a
-                      class="nav-link"
+                      className="nav-link bold heading"
                       href="#work"
                       onClick={handleWorkLinkClick}
                     >
                       Work
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#contact">
+                  <li className="nav-item">
+                    <a className="nav-link bold  heading" href="#contact">
                       Contact
                     </a>
                   </li>

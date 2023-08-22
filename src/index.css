@@ -26,6 +26,10 @@ ol,
 ul {
   margin-bottom: 0.5rem;
 }
+
+#home {
+  padding-top: 200px;
+}
 :root {
   --color-bg: #202020;
   --color-white: #ffffff;
@@ -212,6 +216,7 @@ h6 {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   z-index: 1;
+  cursor: pointer;
 }
 
 .feature-container:hover .overlay {
@@ -350,8 +355,8 @@ h6 {
 
 header {
   position: absolute;
-  padding-top: 10px;
-  padding-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   width: 100%;
   top: 0;
   background: rgba(50, 50, 50, 0.7);
@@ -391,4 +396,218 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.heading {
+  color: var(--headings-color);
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.5px;
+}
+.heading:hover {
+  border-bottom: 3px solid var(--headings-color);
+}
+.project-container {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.project-container:hover {
+  transform: translateY(-10px);
+}
+
+.project-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay-text {
+  text-align: center;
+  padding: 10px;
+}
+
+.project-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-text::after {
+  content: "_";
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+.project-container:hover .overlay-text::after {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+}
+
+.loader-spinner {
+  width: 100px;
+  height: 100px;
+  border: 5px solid var(--paragraph-color);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.pre-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  z-index: 999;
+  animation: slideIn 1s ease-in-out forwards;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+@keyframes slideIn {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.pre-main-content.slide-out {
+  animation: slideOut 1s ease-in-out forwards;
+}
+
+.show-main-button {
+  margin-top: 64px;
+  display: flex;
+  width: 400px;
+  height: 64px;
+  padding: 16px 48px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--button-bg);
+}
+
+.pre_heading {
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-size: 64px;
+  font-style: normal;
+  line-height: 70px;
+  letter-spacing: -0.5px;
+}
+
+.pre-main-content.slide-out {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.text-distortion {
+  animation: distortText 1.5s cubic-bezier(0.2, 0.85, 0.32, 1.2) forwards;
+}
+
+@keyframes distortText {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  60% {
+    transform: scale(0.9) rotate(3deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.typing-effect {
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-size: 64px;
+  font-style: normal;
+  line-height: 70px;
+  letter-spacing: -0.5px;
+
+  display: inline-block;
+}
+
+.blinker {
+  animation: blink 1s infinite;
+  color: var(--paragraph-color);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinker {
+  animation: blink 0.5s step-start infinite;
+}
+
+.blinker.show {
+  animation: blink 0.5s step-end infinite;
+}
+
+.developer {
+  width: 50px;
 }

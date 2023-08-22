@@ -16,10 +16,34 @@ function Footer() {
                 -Copyright 2023
               </h2>
               <div className="social_box">
-                <img className="social_icon" src={whatsapp} alt="social_icon" />
-                <img className="social_icon" src={behance} alt="social_icon" />
-                <img className="social_icon" src={linkedin} alt="social_icon" />
-                <img className="social_icon" src={twitter} alt="social_icon" />
+                <a href="#">
+                  <img
+                    className="social_icon"
+                    src={whatsapp}
+                    alt="social_icon"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    className="social_icon"
+                    src={behance}
+                    alt="social_icon"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    className="social_icon"
+                    src={linkedin}
+                    alt="social_icon"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    className="social_icon"
+                    src={twitter}
+                    alt="social_icon"
+                  />
+                </a>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ function FeatureWork() {
                       loading="lazy"
                     />
                     <div className="overlay">
-                      <p className="overlay-text">{feature.text}</p>
+                      <p className="overlay-text bold">{feature.text}</p>
                     </div>
                   </div>
                 </div>
