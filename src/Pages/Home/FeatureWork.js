@@ -1,9 +1,9 @@
 import React from "react";
-import arrow from "../Assets/Images/arrow-1.svg";
-import feature1 from "../Assets/Images/feature1.png";
-import feature2 from "../Assets/Images/feature2.png";
-import feature3 from "../Assets/Images/feature3.png";
-import feature4 from "../Assets/Images/feature4.png";
+import arrow from "../../Assets/Images/arrow-1.svg";
+import feature1 from "../../Assets/Images/feature1.png";
+import feature2 from "../../Assets/Images/feature2.png";
+import feature3 from "../../Assets/Images/feature3.png";
+import feature4 from "../../Assets/Images/feature4.png";
 
 function FeatureWork() {
   const features = [

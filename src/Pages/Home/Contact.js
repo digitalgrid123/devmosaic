@@ -1,5 +1,5 @@
 import React from "react";
-import mail from "../Assets/Images/mail.svg";
+import mail from "../../Assets/Images/mail.svg";
 
 function Contact() {
   return (

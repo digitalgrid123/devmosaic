@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../Assets/Images/icon.svg";
-
+import { Link } from "react-router-dom";
 function Header() {
   const handleWorkLinkClick = (event) => {
     event.preventDefault();
@@ -16,9 +16,9 @@ function Header() {
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
             <nav className="display_center navbar-expand-lg">
-              <a href="/">
+              <Link to="/">
                 <img src={logo} alt="logo_icon" />
-              </a>
+              </Link>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -33,13 +33,14 @@ function Header() {
               <div className="collapse navbar-collapse flex_end" id="navbarNav">
                 <ul className="navbar-nav gap_ul">
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link bold heading active"
+                      rt
                       aria-current="page"
-                      href="#home"
+                      to="/"
                     >
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <a

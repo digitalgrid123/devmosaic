@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import mail from "../Assets/Images/mail.svg";
+import mail from "../../Assets/Images/mail.svg";
 
 function Landing({ document }) {
   const [isVisible, setIsVisible] = useState(false);

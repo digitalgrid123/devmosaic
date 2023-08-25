@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import project1 from "../Assets/Images/project1.png";
-import project2 from "../Assets/Images/project2.png";
-import project3 from "../Assets/Images/project3.png";
+import project1 from "../../Assets/Images/project1.png";
+import project2 from "../../Assets/Images/project2.png";
+import project3 from "../../Assets/Images/project3.png";
+import { Link } from "react-router-dom";
 
 const projectImages = [
   { img: project1, text: "Project 1 Text" },
@@ -41,15 +42,17 @@ const Project = () => {
                   key={index}
                 >
                   <div className="project-container">
-                    <img
-                      className={` ${showMore ? "show" : "hide"}`}
-                      src={project.img}
-                      alt={`project_${index}`}
-                      loading="lazy"
-                    />
-                    <div className="overlay">
-                      <p className="overlay-text">{project.text}</p>
-                    </div>
+                    <Link to={`/project/${index + 1}`}>
+                      <img
+                        className={` ${showMore ? "show" : "hide"}`}
+                        src={project.img}
+                        alt={`project_${index}`}
+                        loading="lazy"
+                      />
+                      <div className="overlay">
+                        <p className="overlay-text">{project.text}</p>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               ))}

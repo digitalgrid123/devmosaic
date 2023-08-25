@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Landing from "./Component/Landing";
-import FeatureWork from "./Component/FeatureWork";
-import Project from "./Component/Project";
-import Contact from "./Component/Contact";
 import Header from "./Common/Header";
 import Footer from "./Common/Footer";
 import PreMainContent from "./Common/PreMainContent";
 import { useAllPrismicDocumentsByType } from "@prismicio/react";
+import Home from "./Pages/Home/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Project from "../src/Pages/Project/Project";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,14 +40,16 @@ function App() {
       ) : (
         <React.Fragment>
           {showMain ? (
-            <React.Fragment>
-              <Header />
-              <Landing document={document} />
-              <FeatureWork />
-              <Project />
-              <Contact />
-              <Footer />
-            </React.Fragment>
+            <>
+              <Router>
+                <Header />
+                <Routes>
+                  <Route path="/" element={<Home document={document} />} />
+                  <Route path="/project/:projectId" element={<Project />} />
+                </Routes>
+                <Footer />
+              </Router>
+            </>
           ) : (
             <PreMainContent showMainContent={handleShowMain} />
           )}
