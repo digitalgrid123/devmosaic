@@ -7,10 +7,7 @@ import Contact from "./Component/Contact";
 import Header from "./Common/Header";
 import Footer from "./Common/Footer";
 import PreMainContent from "./Common/PreMainContent";
-import {
-  useSinglePrismicDocument,
-  useAllPrismicDocumentsByType,
-} from "@prismicio/react";
+import { useAllPrismicDocumentsByType } from "@prismicio/react";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,8 +30,7 @@ function App() {
       setShowMain(true);
     }, 1000);
   };
-  const [document] = useSinglePrismicDocument("profile");
-  console.log(document);
+  const [document] = useAllPrismicDocumentsByType("profile");
 
   return (
     <React.Fragment>
@@ -47,7 +43,7 @@ function App() {
           {showMain ? (
             <React.Fragment>
               <Header />
-              <Landing />
+              <Landing document={document} />
               <FeatureWork />
               <Project />
               <Contact />
