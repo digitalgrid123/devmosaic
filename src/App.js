@@ -30,6 +30,7 @@ function App() {
     }, 1000);
   };
   const [document] = useAllPrismicDocumentsByType("profile");
+  const [projects] = useAllPrismicDocumentsByType("project");
 
   return (
     <React.Fragment>
@@ -44,8 +45,14 @@ function App() {
               <Router>
                 <Header />
                 <Routes>
-                  <Route path="/" element={<Home document={document} />} />
-                  <Route path="/project/:projectId" element={<Project />} />
+                  <Route
+                    path="/"
+                    element={<Home document={document} project={projects} />}
+                  />
+                  <Route
+                    path="/project/:projectId"
+                    element={<Project projects={projects} />}
+                  />
                 </Routes>
                 <Footer />
               </Router>

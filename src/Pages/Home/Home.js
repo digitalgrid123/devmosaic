@@ -4,12 +4,12 @@ import FeatureWork from "./FeatureWork";
 import Project from "./Project";
 import Contact from "./Contact";
 
-function Home({ document }) {
+function Home({ document, project }) {
   return (
     <>
       <Landing document={document} />
       <FeatureWork />
-      <Project />
+      <Project project={project} />
       <Contact />
     </>
   );

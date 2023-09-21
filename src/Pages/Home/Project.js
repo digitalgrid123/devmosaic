@@ -14,7 +14,7 @@ const projectImages = [
 
 const initialProjectsToShow = 3;
 
-const Project = () => {
+const Project = ({ project }) => {
   const [showMore, setShowMore] = useState(false);
   const [projectsToShow, setProjectsToShow] = useState(initialProjectsToShow);
 
@@ -34,28 +34,36 @@ const Project = () => {
           <div className="col-lg-10 offset-lg-1">
             <h2 className="personal_heading bold">Personal Projects</h2>
             <div className="row">
-              {projectImages.slice(0, projectsToShow).map((project, index) => (
-                <div
-                  className={`col-lg-4 project-item ${
-                    showMore ? "fade-in-up scale-in" : ""
-                  }`}
-                  key={index}
-                >
-                  <div className="project-container">
-                    <Link to={`/project/${index + 1}`}>
-                      <img
-                        className={` ${showMore ? "show" : "hide"}`}
-                        src={project.img}
-                        alt={`project_${index}`}
-                        loading="lazy"
-                      />
-                      <div className="overlay">
-                        <p className="overlay-text">{project.text}</p>
-                      </div>
-                    </Link>
+              {project?.map((projectData, index) => {
+                {
+                  console.log();
+                }
+                return (
+                  <div
+                    className={`col-lg-4 project-item ${
+                      showMore ? "fade-in-up scale-in" : ""
+                    }`}
+                    key={index}
+                  >
+                    <div className="project-container">
+                      <Link to={`/project/${projectData?.uid}`}>
+                        <img
+                          className={` ${showMore ? "show" : "hide"}`}
+                          src={projectData?.data?.project_img[0]?.image?.url}
+                          alt={`project_${index}`}
+                          loading="lazy"
+                        />
+                        <div className="overlay">
+                          <p className="overlay-text">
+                            {projectData.data.project_title[0]?.text}
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
+
               <button className="more_btn" onClick={handleToggleClick}>
                 {showMore ? "Less" : "More"}
               </button>
