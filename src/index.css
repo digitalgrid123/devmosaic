@@ -85,7 +85,7 @@ h6 {
 }
 .landing_heading {
   color: var(--headings-color);
-  font-size: 64px;
+  font-size: 55px;
   font-style: normal;
   line-height: 70px;
   letter-spacing: -0.5px;
@@ -104,8 +104,7 @@ h6 {
 .contact_btn {
   margin-top: 64px;
   display: flex;
-  width: 400px;
-  height: 64px;
+  width: 100%;
   padding: 16px 48px;
   justify-content: center;
   align-items: center;
@@ -118,6 +117,9 @@ h6 {
   transition: 0.3s;
 }
 
+.more_btn:focus {
+  outline: none;
+}
 .mail_icon {
   width: 20.571px;
   height: 16px;
@@ -133,7 +135,7 @@ h6 {
   align-items: center;
   justify-content: center;
 }
-.triangle_container {
+/* .triangle_container {
   position: absolute;
   top: -117px;
   left: -91px;
@@ -154,9 +156,9 @@ h6 {
   display: block;
   box-sizing: border-box;
   border-right: 20px solid transparent;
-}
+} */
 
-.gg-shape-triangle::before {
+/* .gg-shape-triangle::before {
   content: "";
   position: absolute;
   width: 600px;
@@ -167,7 +169,7 @@ h6 {
   transform: rotate(45deg) skew(10deg, 10deg);
   left: 30px;
   bottom: -318px;
-}
+} */
 
 .visible {
   transform: scale(var(--ggs, 1));
@@ -354,7 +356,8 @@ h6 {
 }
 
 header {
-  position: absolute;
+  position: fixed;
+  z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
@@ -406,13 +409,15 @@ footer {
   letter-spacing: -0.5px;
 }
 .heading:hover {
-  border-bottom: 3px solid var(--headings-color);
+  border-bottom: 2px solid var(--headings-color);
+  transition: border-bottom 0.5s;
 }
 .project-container {
   position: relative;
   overflow: hidden;
   padding: 10px;
   transition: transform 0.3s;
+  margin-bottom: 40px;
 }
 
 .project-container:hover {
@@ -527,6 +532,12 @@ footer {
 .pre-main-content.slide-out {
   animation: slideOut 1s ease-in-out forwards;
 }
+.hidden {
+  display: none !important;
+}
+.appear {
+  display: block;
+}
 
 .show-main-button {
   margin-top: 64px;
@@ -539,6 +550,9 @@ footer {
   flex-shrink: 0;
   border-radius: 4px;
   background: var(--button-bg);
+}
+.show-main-button:focus {
+  outline: none;
 }
 
 .pre_heading {
@@ -688,7 +702,7 @@ footer {
   }
 }
 .project {
-  height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -718,4 +732,187 @@ footer {
 
 .carousel-indicator.active {
   background-color: yellow;
+}
+.margin-project {
+  display: flex;
+  margin-bottom: 35px;
+}
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar-links,
+ul,
+li {
+  list-style: none;
+}
+.toggle-button {
+  display: none;
+}
+/* CSS for header and menu */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Background blur effect */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  /* transform: translateX(100%); Initially off-screen to the right */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.menu li {
+  margin: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+.back-icon {
+  width: 24px;
+  filter: invert(1);
+}
+.back-button,
+.back-button:focus {
+  outline: none;
+  background: black;
+  color: white;
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid black;
+  transition: 0.5ss;
+}
+.back-button:hover {
+  border-color: whitesmoke;
+}
+.back-button:hover span {
+  margin-left: 5px; /* Adjust the value as needed */
+  transition: margin-left 0.2s; /* Add a transition for a smooth effect */
+}
+.resume_btn {
+  display: flex;
+  width: 100%;
+  padding: 8px 35px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--button-bg);
+}
+.resume_btn span {
+  color: var(--headings-color);
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.5px;
+}
+.resume_btn span:hover {
+  margin-right: 5px;
+  transition: margin-right 0.5s;
+}
+@media (max-width: 768px) {
+  .project {
+    height: 100%;
+  }
+  .positionRelative {
+    text-align: center;
+  }
+  .reverse {
+    flex-direction: column-reverse;
+  }
+  .profileImage {
+    width: 240px;
+    height: 240px;
+  }
+  .skill {
+    margin-top: 30px;
+    gap: 0;
+  }
+  .landing_heading {
+    margin-top: 35px;
+    font-size: 29px;
+    line-height: 40px;
+    letter-spacing: -0.5px;
+  }
+  .landing_paragraph {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0;
+  }
+  .contact_btn {
+    margin-top: 35px;
+  }
+  .arrow_box {
+    margin-bottom: 55px;
+  }
+  .feature2-margin {
+    margin: 0;
+  }
+  .contact_heading {
+    font-size: 28px;
+  }
+  .contact_paragraph {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0;
+  }
+  .copyright_heading {
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin-top: 35px;
+  }
+  .pre_heading {
+    font-size: 30px;
+  }
+  .typing-effect {
+    font-size: 24px;
+  }
+  .show-main-button {
+    margin-top: 25px;
+    width: 260px;
+  }
+  .navbar-links {
+    display: none;
+  }
+  .toggle-button {
+    display: block;
+    cursor: pointer;
+    background: rgba(50, 50, 50, 0.7);
+  }
+  .menu-icon {
+    filter: invert(1);
+  }
+  .toggle-button:focus {
+    outline: none;
+  }
+  .close-button {
+    display: block;
+    cursor: pointer;
+    background: var(--color-bg);
+  }
+  .close-button:focus {
+    outline: none;
+  }
+  .mobile-bar {
+    height: 100%;
+    background: var(--color-bg);
+    width: 70%;
+    padding: 40px;
+  }
+  .project-image-transition {
+    height: 200px;
+  }
 }

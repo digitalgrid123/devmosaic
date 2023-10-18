@@ -22,8 +22,9 @@ const Project = ({ project }) => {
     if (showMore) {
       setProjectsToShow(initialProjectsToShow);
     } else {
-      setProjectsToShow(projectImages.length);
+      setProjectsToShow(project.length);
     }
+
     setShowMore(!showMore);
   };
 
@@ -34,28 +35,19 @@ const Project = ({ project }) => {
           <div className="col-lg-10 offset-lg-1">
             <h2 className="personal_heading bold">Personal Projects</h2>
             <div className="row">
-              {project?.map((projectData, index) => {
-                {
-                  console.log();
-                }
+              {project.slice(0, projectsToShow).map((projectData, index) => {
                 return (
-                  <div
-                    className={`col-lg-4 project-item ${
-                      showMore ? "fade-in-up scale-in" : ""
-                    }`}
-                    key={index}
-                  >
+                  <div className="col-lg-4 project-item" key={index}>
                     <div className="project-container">
-                      <Link to={`/project/${projectData?.uid}`}>
+                      <Link to={`/project/${projectData.uid}`}>
                         <img
-                          className={` ${showMore ? "show" : "hide"}`}
                           src={projectData?.data?.project_img[0]?.image?.url}
                           alt={`project_${index}`}
                           loading="lazy"
                         />
                         <div className="overlay">
                           <p className="overlay-text">
-                            {projectData.data.project_title[0]?.text}
+                            {projectData?.data?.project_title[0]?.text}
                           </p>
                         </div>
                       </Link>
@@ -63,10 +55,11 @@ const Project = ({ project }) => {
                   </div>
                 );
               })}
-
-              <button className="more_btn" onClick={handleToggleClick}>
-                {showMore ? "Less" : "More"}
-              </button>
+              <div className="col-lg-12">
+                <button className="more_btn" onClick={handleToggleClick}>
+                  {showMore ? "Less" : "More"}
+                </button>
+              </div>
             </div>
           </div>
         </div>

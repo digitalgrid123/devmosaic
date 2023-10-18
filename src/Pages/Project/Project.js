@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { usePrismicDocumentByUID } from "@prismicio/react";
+import back from "../../Assets/Images/icons8-back .gif";
 
 const Project = () => {
   const { projectId } = useParams();
   const [document] = usePrismicDocumentByUID("project", `${projectId}`);
 
-  // Assuming that your Prismic data structure includes an array of image objects under "project_img"
   const projectImages = document?.data.project_img || [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -25,13 +25,28 @@ const Project = () => {
   const handleIndicatorClick = (index) => {
     setCurrentImageIndex(index);
   };
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate(-1);
+  };
 
   return (
     <section className="project">
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
-            <div className="display_center">
+            <button className="back-button" onClick={handleButtonClick}>
+              <img src={back} alt="back-icon" className="back-icon" />
+              <span>Back</span>
+            </button>
+            <div className="display_center reverse">
               <div className="col-lg-8">
                 <h1 className="landing_heading bold">
                   {document?.data?.project_title[0]?.text}

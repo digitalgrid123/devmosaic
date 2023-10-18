@@ -10,7 +10,7 @@ function Footer() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
-            <div className="space_between">
+            <div className="space_between reverse">
               <h2 className="copyright_heading semiBold">
                 Made by <span className="color_white Bold"> Harris </span>
                 -Copyright 2023

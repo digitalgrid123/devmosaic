@@ -18,7 +18,7 @@ function Landing({ document }) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-10 offset-lg-1">
-            <div className="display_center">
+            <div className="display_center reverse">
               <div className="col-lg-6">
                 <h1 className="landing_heading bold">
                   {document[0]?.data?.title[0]?.text}
@@ -42,6 +42,7 @@ function Landing({ document }) {
               <div className="col-lg-4">
                 <div className="positionRelative">
                   <img
+                    className="profileImage"
                     src={document[0]?.data?.banner_img?.url}
                     alt="profile"
                     loading="lazy"
